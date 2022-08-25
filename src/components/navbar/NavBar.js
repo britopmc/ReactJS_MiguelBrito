@@ -4,8 +4,15 @@ import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import CartWidget from '../CartWidget/CartWidget';
+
 
 function NavBar() {
+
+
+  var categorias = ['Servicios','Productos','Turnos','Contactanos'];
+  var contactos = ['Twitter','Instagram','Facebook','Formulario de contacto']
+
   return (
     <>
       <Navbar bg="warning" variant="light" expand="lg">
@@ -22,20 +29,21 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Servicios</Nav.Link>
-            <Nav.Link href="#home">Productos</Nav.Link>
-            <Nav.Link href="#link">Turnos</Nav.Link>
-            <NavDropdown title="Contactanos" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Twitter</NavDropdown.Item>
+            <Nav.Link href="#home">{categorias[0]}</Nav.Link>
+            <Nav.Link href="#home">{categorias[1]}</Nav.Link>
+            <Nav.Link href="#link">{categorias[2]}</Nav.Link>
+            <NavDropdown title={categorias[3]} id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">{contactos[0]}</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Instagram
+              {contactos[1]}
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Facebook</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">{contactos[2]}</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Formulario de contacto
+              {contactos[3]}
               </NavDropdown.Item>
             </NavDropdown>
+            <Nav.Link href="#link"><CartWidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
