@@ -1,4 +1,3 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import NavDropdown from 'react-bootstrap/NavDropdown';
@@ -25,16 +24,10 @@ function NavBar() {
       id: "3",
       nombre: "Turnos",
       link: "#turnos"
-    },
-    {
-      id: "4",
-      nombre: "Contactanos",
-      link: "#contactanos"
     }
   ];
 
-
-  //este array de objetos lo voy a usar luego cuando deje el dropdown como corresponde en "contactanos"
+  const categoriaContacto = {nombre: "Contactanos", link: "#contactanos"}
 
   const contactos = [
     {
@@ -80,6 +73,15 @@ function NavBar() {
                 <Nav.Link href={categoria.link} key={categoria.id}>{categoria.nombre}</Nav.Link>
               ))
             }
+            <NavDropdown title={categoriaContacto.nombre} id="basic-nav-dropdown">
+
+            {
+              contactos.map((contacto)=>(
+                <NavDropdown.Item key={contacto.id} href={contacto.link}>{contacto.nombre}</NavDropdown.Item>
+              ))
+            }
+
+            </NavDropdown>
             <Nav.Link href="#link"><CartWidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>

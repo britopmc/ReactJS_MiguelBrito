@@ -1,31 +1,44 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Toast from 'react-bootstrap/Toast';
+import ItemCard from '../ItemCard/ItemCard';
 
-function ItemListContainer(props) {
-  const [showA, setShowA] = useState(true);
+function ItemListContainer() {
 
-  const toggleShowA = () => setShowA(!showA);
+
+  const productos = [
+    {
+      id: "1",
+      nombre: "Crema",
+      descripcion: "excelente producto",
+      stock: 3
+    },
+    {
+      id: "2",
+      nombre: "Cera",
+      descripcion: "la mejor del pais",
+      stock: 10
+    },
+    {
+      id: "3",
+      nombre: "Pintura",
+      descripcion: "muy duradera",
+      stock: 15
+    }
+  ];
+
+
 
   return (
-    <Row>
-      <Col md={6} className="mb-2">
-        <Toast show={showA} onClose={toggleShowA}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">BritoSpa</strong>
-          </Toast.Header>
-          <Toast.Body>Bienvenido a nuestra web {props.usuario.nombre}!</Toast.Body>
-        </Toast>
-      </Col>
-    </Row>
+  <div className='row'>
+    {
+      productos.map((producto) => (
+        <div className='col-4'>
+          <ItemCard key={producto.id} nombre={producto.nombre} descripcion={producto.descripcion} stock={producto.stock}/>
+        </div>
+      ))
+    }
+
+    
+  </div>
   );
 }
 
