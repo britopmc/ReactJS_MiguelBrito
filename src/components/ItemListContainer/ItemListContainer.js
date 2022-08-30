@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Toast from 'react-bootstrap/Toast';
 
-function Saludo(props) {
+function ItemListContainer(props) {
   const [showA, setShowA] = useState(true);
 
   const toggleShowA = () => setShowA(!showA);
@@ -22,13 +22,11 @@ function Saludo(props) {
             />
             <strong className="me-auto">BritoSpa</strong>
           </Toast.Header>
-          <Toast.Body>Bienvenido a nuestra web {props.usuario[0]}!</Toast.Body>
+          <Toast.Body>Bienvenido a nuestra web {props.usuario.nombre}!</Toast.Body>
         </Toast>
       </Col>
-
-      <h1>Esta web esta en construccion, proximamente aca estaran nuestros productos en un contenedor muy diferente</h1>
     </Row>
   );
 }
 
-export default Saludo;
+export default ItemListContainer;
