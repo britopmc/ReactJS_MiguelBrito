@@ -82,7 +82,7 @@ function NavBar() {
             }
 
             </NavDropdown>
-            <Nav.Link href="#link"><CartWidget/></Nav.Link>
+            <Nav.Link href="#carrito"><CartWidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
