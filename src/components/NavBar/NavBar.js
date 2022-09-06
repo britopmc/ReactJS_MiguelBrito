@@ -3,6 +3,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
 
 function NavBar() {
@@ -55,7 +56,7 @@ function NavBar() {
     <>
       <Navbar bg="warning" variant="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Link to='/'>
         <img
               alt=""
               src="/img/130219.svg"
@@ -63,7 +64,7 @@ function NavBar() {
               height="120"
               className="d-inline-block align-top"
             />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

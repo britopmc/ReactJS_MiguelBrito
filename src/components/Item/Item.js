@@ -1,15 +1,11 @@
 import Card from 'react-bootstrap/Card';
-import ItemCount from '../ItemCount/ItemCount';
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 
 
 function Item(props) {
 
-  const {nombre, descripcion, imagen, precio, stock} = props
+  const {id, nombre, imagen} = props
 
-  const addToCart = (count) => {
-    console.log("Se anadio al carrito", count, nombre)
-  }
 
   return (
     <div className='col-4'>
@@ -18,16 +14,9 @@ function Item(props) {
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
         <Card.Text>
-          {descripcion}
-          <Button variant="secondary">Ver detalle del producto</Button>
-          <br/>
-          <br/>
-          Precio Unitario {precio} AR$
+          <Link className='btn-primary btn' to={`/detail/${id}`} variant="secondary">Ver detalle del producto</Link>
           <br/>
         </Card.Text>        
-        <ItemCount stock={stock} addToCart={addToCart}/>
-        <br/>
-        Stock {stock}
         
       </Card.Body>
     </Card>

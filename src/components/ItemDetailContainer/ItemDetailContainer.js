@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom"
 
 function ItemDetailContainer() {
 
-const [productos, setProductos] = useState([])
+const [detalle, setDetalle] = useState([])
 
 const [loading, setLoading] = useState(true)
 
@@ -18,7 +18,8 @@ const {id} = useParams()
     setLoading(true)
     lecturaDatos()
     .then((res)=>{
-      setProductos( res.filter((prod) => prod.id === id) )
+      setDetalle( res.filter((prod) => prod.id === id) )
+      console.log()
 
     } )
     .finally( () => {
@@ -38,10 +39,9 @@ const {id} = useParams()
     {
       loading ? <h2>Cargando...</h2>
 
-      : <ItemDetail productos={productos}/>
+      : <ItemDetail id={detalle[0].id} nombre={detalle[0].nombre} descripcion={detalle[0].descripcion} imagen={detalle[0].imagen} precio={detalle[0].precio} stock={detalle[0].stock}/>
     }
 
-      
 
   </div>
   );
