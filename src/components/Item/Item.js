@@ -1,8 +1,7 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
 import Button from 'react-bootstrap/Button';
+
 
 function Item(props) {
 

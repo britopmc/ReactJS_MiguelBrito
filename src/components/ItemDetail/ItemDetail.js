@@ -1,8 +1,8 @@
-
 import Item from '../Item/Item';
 
 
-function ItemList({productos}) {
+
+function ItemDetail({productos}) {
 
 
   return (
@@ -22,4 +22,5 @@ function ItemList({productos}) {
   );
 }
 
-export default ItemList;
+
+export default ItemDetail
