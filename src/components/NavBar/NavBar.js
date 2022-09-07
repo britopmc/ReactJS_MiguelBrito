@@ -12,49 +12,63 @@ function NavBar() {
   const categorias = [
     {
       id: "1",
-      nombre: "Servicios",
-      link: "#servicios"
+      nombre: "Maquillaje"
     },
     {
       id: "2",
-      nombre: "Productos",
-      link: "#productos"
+      nombre: "Perfume y fragancias"
     },
     {
       id: "3",
-      nombre: "Turnos",
-      link: "#turnos"
+      nombre: "Cuidado de la piel"
     }
-  ];
+  ]
 
-  const categoriaContacto = {nombre: "Contactanos", link: "#contactanos"}
 
-  const contactos = [
+  const subCat1 = [
     {
       id: "1",
-      nombre: "Twitter",
-      link: "#twitter"
+      nombre: "Labios"
     },
     {
       id: "2",
-      nombre: "Instagram",
-      link: "#instagram"
+      nombre: "Ojos"
     },
     {
       id: "3",
-      nombre: "Facebook",
-      link: "#facebook"
+      nombre: "Rostro"
     },
     {
       id: "4",
-      nombre: "Formulario de contacto",
-      link: "#form"
+      nombre: "Uñas"
+    }
+  ]
+
+  const subCat2 = [
+    {
+      id: "1",
+      nombre: "Hombres"
+    },
+    {
+      id: "2",
+      nombre: "Mujeres"
+    }
+  ]
+
+  const subCat3 = [
+    {
+      id: "1",
+      nombre: "Cremas_Corporales"
+    },
+    {
+      id: "2",
+      nombre: "Cremas_Faciales"
     }
   ]
 
   return (
     <>
-      <Navbar bg="warning" variant="light" expand="lg">
+      <Navbar bg="warning" variant="light" expand="lg" max-width="100%">
       <Container>
         <Link to='/'>
         <img
@@ -68,20 +82,38 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            {
-              categorias.map((categoria)=>(
-                <Nav.Link href={categoria.link} key={categoria.id}>{categoria.nombre}</Nav.Link>
-              ))
-            }
-            <NavDropdown title={categoriaContacto.nombre} id="basic-nav-dropdown">
+
+            <NavDropdown title={categorias[0].nombre} id="basic-nav-dropdown">
 
             {
-              contactos.map((contacto)=>(
-                <NavDropdown.Item key={contacto.id} href={contacto.link}>{contacto.nombre}</NavDropdown.Item>
+              subCat1.map((subcat)=>(
+                <NavDropdown.Item as={Link} to={`/category/${subcat.nombre}`} key={subcat.id}>{subcat.nombre}</NavDropdown.Item>
               ))
             }
-
             </NavDropdown>
+            
+
+            <NavDropdown title={categorias[1].nombre} id="basic-nav-dropdown">
+
+            {
+              subCat2.map((subcat)=>(
+                <NavDropdown.Item as={Link} to={`/category/${subcat.nombre}`} key={subcat.id}>{subcat.nombre}</NavDropdown.Item>
+              ))
+            }
+            </NavDropdown>
+
+            <NavDropdown title={categorias[2].nombre} id="basic-nav-dropdown">
+
+            {
+              subCat3.map((subcat)=>(
+                <NavDropdown.Item as={Link} to={`/category/${subcat.nombre}`} key={subcat.id}>{subcat.nombre}</NavDropdown.Item>
+              ))
+            }
+            </NavDropdown>
+
+
+
+
             <Nav.Link href="#carrito"><CartWidget/></Nav.Link>
           </Nav>
         </Navbar.Collapse>

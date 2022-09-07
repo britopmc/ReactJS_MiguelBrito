@@ -12,7 +12,7 @@ function ItemDetail(props) {
   }
 
   return (
-    <div className="col d-flex justify-content-center">
+    <div className="col d-flex justify-content-center" padding="0">
     <Card  className="text-center" style={{ width: '18rem', margin: "2rem"}}>
       <Card.Img variant="top" src={imagen}/>
       <Card.Body>

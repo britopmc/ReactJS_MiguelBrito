@@ -14,7 +14,7 @@ function Item(props) {
       <Card.Body>
         <Card.Title>{nombre}</Card.Title>
         <Card.Text>
-          <Link className='btn-primary btn' to={`/detail/${id}`} variant="secondary">Ver detalle del producto</Link>
+          <Link className='btn-primary btn' to={`/item/${id}`} variant="secondary">Ver detalle del producto</Link>
           <br/>
         </Card.Text>        
         

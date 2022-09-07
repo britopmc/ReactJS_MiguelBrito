@@ -12,21 +12,21 @@ const App = () => {
 
     <div>
 
-      <BrowserRouter>
+    <BrowserRouter>
 
-        <NavBar/>
+      <NavBar/>
 
-        <Routes>
-          
-          <Route path='/'  element={ <ItemListContainer/> } />
-          <Route path='/detail/:id'  element={ <ItemDetailContainer/> } />          
-          <Route path='*'  element={ <Navigate to="/"/> } />
+      <Routes>
+  
+      <Route path='/'  element={ <ItemListContainer/> } />
+      <Route path='/category/:category'  element={ <ItemListContainer/> } />
+      <Route path='/item/:id'  element={ <ItemDetailContainer/> } />          
+      <Route path='*'  element={ <Navigate to="/"/> } />
 
-        </Routes>
+      </Routes>
 
-        
 
-      </BrowserRouter>
+    </BrowserRouter>
 
     </div>
   );
