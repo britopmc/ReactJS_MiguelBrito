@@ -114,7 +114,7 @@ function NavBar() {
 
 
 
-            <Nav.Link href="#carrito"><CartWidget/></Nav.Link>
+            <Nav.Link as={Link} to={"/cart"}><CartWidget/>Terminar mi compra</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

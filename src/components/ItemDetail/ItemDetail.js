@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import ItemCount from '../ItemCount/ItemCount';
 
@@ -7,9 +8,22 @@ function ItemDetail(props) {
 
   const {nombre, descripcion, imagen, precio, stock} = props
 
-  const addToCart = (count) => {
-    console.log("Se anadio al carrito", count, nombre)
+  const [count, setCount] = useState(0)
+
+  const handleAgregar = () => {
+
+    const itemToCart = {
+      precio: {precio},
+      cantidad: {count},
+      nombre: {nombre}
+
+    }
+
+    console.log(itemToCart)
+
+
   }
+
 
   return (
     <div className="col d-flex justify-content-center" padding="0">
@@ -24,7 +38,7 @@ function ItemDetail(props) {
           Precio Unitario {precio} AR$
           <br/>
         </Card.Text>        
-        <ItemCount stock={stock} addToCart={addToCart}/>
+        <ItemCount stock={stock} count={count} setCount={setCount} handleAgregar={handleAgregar}/>
         <br/>
         Stock {stock}
         

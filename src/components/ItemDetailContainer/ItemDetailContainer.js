@@ -20,7 +20,7 @@ const {id} = useParams()
     lecturaDatos()
     .then((res)=>{
       
-      setDetalle( res.filter((prod) => prod.id === id) )
+      setDetalle( ...res.filter((prod) => prod.id === id) )
 
     } )
     .finally( () => {
@@ -40,7 +40,7 @@ const {id} = useParams()
     {
       loading ? <Loader/>
 
-      : <ItemDetail id={detalle[0].id} nombre={detalle[0].nombre} descripcion={detalle[0].descripcion} imagen={detalle[0].imagen} precio={detalle[0].precio} stock={detalle[0].stock}/>
+      : <ItemDetail id={detalle.id} nombre={detalle.nombre} descripcion={detalle.descripcion} imagen={detalle.imagen} precio={detalle.precio} stock={detalle.stock}/>
     }
 
 
