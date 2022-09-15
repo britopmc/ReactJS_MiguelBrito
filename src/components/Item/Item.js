@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
  
 function Item(props) {
 
-  const {id, nombre, imagen} = props
+  const {producto} = props
+
+  const {id, nombre, imagen} = producto
 
 
   return (

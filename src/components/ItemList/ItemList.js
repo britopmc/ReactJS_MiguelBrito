@@ -10,7 +10,7 @@ function ItemList({productos}) {
     <div className='row'>
       {
       productos.map((producto) => (
-          <Item key={producto.id} id={producto.id} nombre={producto.nombre} imagen={producto.imagen}/>
+          <Item key={producto.id} producto={producto}/>
         ))
   
         

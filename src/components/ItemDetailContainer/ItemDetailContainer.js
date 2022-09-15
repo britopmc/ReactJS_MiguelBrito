@@ -40,7 +40,7 @@ const {id} = useParams()
     {
       loading ? <Loader/>
 
-      : <ItemDetail id={detalle.id} nombre={detalle.nombre} descripcion={detalle.descripcion} imagen={detalle.imagen} precio={detalle.precio} stock={detalle.stock}/>
+      : <ItemDetail id={detalle.id} item={detalle}/>
     }
 
 
