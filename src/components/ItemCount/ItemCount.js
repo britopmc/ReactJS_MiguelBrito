@@ -20,9 +20,9 @@ function ItemCount({stock, count, setCount, handleAgregar}) {
   return (
 
     <div>
-      <Button onClick={handleSubstract}> - </Button>
+      <Button disabled={count<1} onClick={handleSubstract}> - </Button>
       <span> {count} </span>
-      <Button onClick={handleAdd}> + </Button>
+      <Button disabled={count===stock} onClick={handleAdd}> + </Button>
       <Button style={{width: "100%"}} disabled={count<1} onClick={handleAgregar} variant="primary">Agregar al carrito</Button>
     </div>
   );

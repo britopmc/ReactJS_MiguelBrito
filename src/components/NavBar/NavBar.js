@@ -4,7 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from '../../context/CartContext';
+import { useContext } from 'react';
 
 function NavBar() {
 
@@ -66,6 +67,10 @@ function NavBar() {
     }
   ]
 
+  const { cart } = useContext(CartContext)
+
+  
+
   return (
     <>
       <Navbar bg="warning" variant="light" expand="lg" max-width="100%">
@@ -112,9 +117,13 @@ function NavBar() {
             </NavDropdown>
 
 
-
+            <div className={cart.length === 0 ? "invisible" : "visible"}>
 
             <Nav.Link as={Link} to={"/cart"}><CartWidget/>Carrito</Nav.Link>
+
+            </div>
+
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

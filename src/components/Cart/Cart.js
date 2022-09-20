@@ -2,6 +2,7 @@ import { useContext } from "react"
 import Card from 'react-bootstrap/Card';
 import { CartContext } from "../../context/CartContext"
 import { BsFillTrashFill } from 'react-icons/bs'
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -9,48 +10,58 @@ const Cart = () => {
     const {cart, CartTotal, emptyCart, removeItem} = useContext(CartContext)
 
 
-    return (
-        <div className="container my-5">
-            <h2>Resumen de tus productos</h2>
-            <hr/>
+    if(cart.length === 0){
 
+        return(
+            <div className="container my-5">
+                <h2>No hay ningun producto en el carrito</h2><hr/>
 
-            {
-                    cart.map((item)=>(
+                <Link to="/" className="btn btn-dark">Volver a la tienda</Link>
+                </div>
+        )
 
-                        <div className='col-4' key={item.id}>
-                        <Card  className="text-center" style={{ width: '12rem', margin: "2rem"}}>
-                            <Card.Img variant="top" src={item.imagen}/>
-                                <Card.Body>
-                                <Card.Title>{item.nombre}</Card.Title>
-                                <Card.Text>
-                                    <br/>
-                                    <br/>
-                                    Cantidad {item.cantidad}
-                                    <br/>
-                                    <br/>
-                                    Subtotal {item.subtotal}
-                                    <br/>
-                                    <button onClick={()=> removeItem(item.id)} classname="btn btn-secondary"><BsFillTrashFill/></button>
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-    
-                        </div>
+        
+    }
+        return (
+            <div className="container my-5">
+                <h2>Resumen de tus productos</h2>
+                <hr/>
 
-                    )) 
-                       
-            }
+                {
+                        cart.map((item)=>(
 
-            <h2>Total  {CartTotal()}  pesos </h2>
-            <br/>
+                            <div className='col-4' key={item.id}>
+                            <Card  className="text-center" style={{ width: '12rem', margin: "2rem"}}>
+                                <Card.Img variant="top" src={item.imagen}/>
+                                    <Card.Body>
+                                    <Card.Title>{item.nombre}</Card.Title>
+                                    <Card.Text>
+                                        <br/>
+                                        <br/>
+                                        Cantidad {item.cantidad}
+                                        <br/>
+                                        <br/>
+                                        Subtotal {item.subtotal}
+                                        <br/>
+                                        <button onClick={()=> removeItem(item.id)} className="btn btn-secondary"><BsFillTrashFill/></button>
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+        
+                            </div>
 
-            <button onClick={emptyCart} className='btn btn-danger'>Vaciar carrito por completo</button>
+                        )) 
+                        
+                }
 
+                <h2>Total  {CartTotal()}  pesos </h2>
+                <br/>
 
+                <button onClick={emptyCart} className='btn btn-danger'>Vaciar carrito por completo</button>
 
-        </div>
-    )
+            </div>
+        )
+     
 }
 
 export default Cart
