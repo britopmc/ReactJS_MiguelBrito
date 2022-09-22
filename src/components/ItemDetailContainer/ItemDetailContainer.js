@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { lecturaDatos } from '../../helpers/lecturaDatos';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from "react-router-dom"
 import Loader from '../Loader/Loader';
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../../firebase/config"
 
 
 
@@ -17,19 +18,19 @@ const {id} = useParams()
 
   useEffect(()=>{
     setLoading(true)
-    lecturaDatos()
-    .then((res)=>{
-      
-      setDetalle( ...res.filter((prod) => prod.id === id) )
 
-    } )
-    .finally( () => {
+    const docRef = doc(db, 'productos', id)
+
+    getDoc(docRef)
+    .then((resp)=>{
+
+      setDetalle({id: resp.id, ...resp.data()})
+    })
+    .finally(()=>{
 
       setLoading(false)
-    }
+    })
 
-
-    )
   }, [id])
 
   
