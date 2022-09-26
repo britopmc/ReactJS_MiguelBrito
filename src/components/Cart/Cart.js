@@ -58,6 +58,7 @@ const Cart = () => {
                 <br/>
 
                 <button onClick={emptyCart} className='btn btn-danger'>Vaciar carrito por completo</button>
+                <Link className="btn btn-success mx-2" to="/checkout">Terminar mi compra</Link>
 
             </div>
         )
